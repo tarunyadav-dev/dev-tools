@@ -1,0 +1,156 @@
+[
+  {
+    "id": "6870c3d5a91b4f7d8e120001",
+    "name": "React Flow",
+    "icon": "https://reactflow.dev/favicon.ico?favicon.0~w8zp6ovw0mv.ico",
+    "description": "A React library for building interactive node-based editors, diagrams, workflows, and visual graph applications.",
+    "coreLanguage": "TypeScript",
+    "coreFramework": "React",
+    "slug": "react-flow",
+    "keywordForUse": [
+      "nodes",
+      "edges",
+      "graph",
+      "workflow",
+      "diagram",
+      "mind map",
+      "visual editor"
+    ],
+    "seoTags": [
+      "react flow",
+      "react graph library",
+      "workflow builder",
+      "diagram library",
+      "node editor"
+    ],
+    "useCaseLines": [
+      "Build workflow editors.",
+      "Create mind maps.",
+      "Design AI agent flows.",
+      "Visualize dependency graphs."
+    ],
+    "dateOfCreation": "2026-07-11T00:00:00.000Z",
+    "dateOfUpdate": "2026-07-11T00:00:00.000Z",
+    "percentageOfCompleteness": 0,
+    "isActive": true,
+    "category": "Visualization",
+    "documentationUrl": "https://reactflow.dev/learn",
+    "officialWebsite": "https://reactflow.dev",
+    "githubRepo": "https://github.com/xyflow/xyflow",
+    "contentUrl":   "src/data/libraries/markdown/javascript/react/react-flow.md"
+  },
+  {
+    "id": "6870c3d5a91b4f7d8e120002",
+    "name": "Lucide React",
+    "icon": "https://lucide.dev/logo.dark.svg",
+    "description": "A lightweight React icon library providing consistent, customizable SVG icons.",
+    "coreLanguage": "TypeScript",
+    "coreFramework": "React",
+    "slug": "lucide-react",
+    "keywordForUse": [
+      "icons",
+      "svg",
+      "ui",
+      "design",
+      "components"
+    ],
+    "seoTags": [
+      "lucide react",
+      "react icons",
+      "svg icons",
+      "icon library",
+      "lucide"
+    ],
+    "useCaseLines": [
+      "Add scalable SVG icons.",
+      "Build modern interfaces.",
+      "Replace image-based icons.",
+      "Create consistent UI."
+    ],
+    "dateOfCreation": "2026-07-11T00:00:00.000Z",
+    "dateOfUpdate": "2026-07-11T00:00:00.000Z",
+    "percentageOfCompleteness": 0,
+    "isActive": true,
+    "category": "Icons",
+    "documentationUrl": "https://lucide.dev/guide/packages/lucide-react",
+    "officialWebsite": "https://lucide.dev",
+    "githubRepo": "https://github.com/lucide-icons/lucide",
+    "contentUrl": null
+  },
+  {
+    "id": "6870c3d5a91b4f7d8e120003",
+    "name": "Streamlit",
+    "icon": "https://streamlit.io/images/brand/streamlit-mark-color.png",
+    "description": "An open-source Python framework for building and sharing interactive data applications with minimal code.",
+    "coreLanguage": "Python",
+    "coreFramework": null,
+    "slug": "streamlit",
+    "keywordForUse": [
+      "dashboard",
+      "data science",
+      "machine learning",
+      "web app",
+      "visualization"
+    ],
+    "seoTags": [
+      "streamlit",
+      "python dashboard",
+      "data app",
+      "machine learning app",
+      "streamlit python"
+    ],
+    "useCaseLines": [
+      "Build ML demos.",
+      "Create dashboards.",
+      "Visualize datasets.",
+      "Deploy data science applications."
+    ],
+    "dateOfCreation": "2026-07-11T00:00:00.000Z",
+    "dateOfUpdate": "2026-07-11T00:00:00.000Z",
+    "percentageOfCompleteness": 0,
+    "isActive": true,
+    "category": "Data Apps",
+    "documentationUrl": "https://docs.streamlit.io",
+    "officialWebsite": "https://streamlit.io",
+    "githubRepo": "https://github.com/streamlit/streamlit",
+    "contentUrl": null
+  },
+  {
+    "id": "6870c3d5a91b4f7d8e120004",
+    "name": "Matplotlib",
+    "icon": "https://matplotlib.org/stable/_static/logo2.svg",
+    "description": "A comprehensive Python plotting library for creating static, animated, and interactive visualizations.",
+    "coreLanguage": "Python",
+    "coreFramework": null,
+    "slug": "matplotlib",
+    "keywordForUse": [
+      "plotting",
+      "charts",
+      "graphs",
+      "visualization",
+      "data analysis"
+    ],
+    "seoTags": [
+      "matplotlib",
+      "python plotting",
+      "python charts",
+      "visualization library",
+      "graph library"
+    ],
+    "useCaseLines": [
+      "Create scientific plots.",
+      "Visualize datasets.",
+      "Generate publication-quality charts.",
+      "Analyze experimental results."
+    ],
+    "dateOfCreation": "2026-07-11T00:00:00.000Z",
+    "dateOfUpdate": "2026-07-11T00:00:00.000Z",
+    "percentageOfCompleteness": 0,
+    "isActive": true,
+    "category": "Visualization",
+    "documentationUrl": "https://matplotlib.org/stable/",
+    "officialWebsite": "https://matplotlib.org",
+    "githubRepo": "https://github.com/matplotlib/matplotlib",
+    "contentUrl": null
+  }
+]

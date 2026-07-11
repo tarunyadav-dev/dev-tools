@@ -1,0 +1,50 @@
+[
+    {
+        "id": "0898d242a0f44a32bdaccb8d",
+        "name": "Treemap",
+        "description": "Visualize concepts and relationships as an interactive node-based network for organizing knowledge and ideas.",
+        "href": "/tools/treemap",
+        "icon": "network",
+        "active": true
+    },
+    {
+    "id": "c8d421e79a5b4d8b8d91f631",
+    "name": "Library Manager",
+    "description": "Browse, organize, and learn programming libraries with structured notes, documentation, and practical use cases.",
+    "href": "/libraries",
+    "icon": "library-big",
+    "active": true
+},
+    {
+        "id": "6a851a4a16eb4539b44f9208",
+        "name": "Markdown Editor",
+        "description": "Write, preview, and manage Markdown documents with live rendering and syntax highlighting.",
+        "href": "/tools/markdown-editor",
+        "icon": "file-text",
+        "active": false
+    },
+    {
+        "id": "fb265fedabc047ddb8728029",
+        "name": "JSON Formatter",
+        "description": "Format, validate, minify, and beautify JSON with instant parsing and error highlighting.",
+        "href": "/tools/json-formatter",
+        "icon": "braces",
+        "active": false
+    },
+    {
+        "id": "887eac24033c43f7b3dddf8a",
+        "name": "Color Palette",
+        "description": "Generate, organize, and copy beautiful color palettes for web and application design.",
+        "href": "/tools/color-palette",
+        "icon": "palette",
+        "active": false
+    },
+    {
+  "id": "887eac24033c43f7b3dddf8b",
+  "name": "Developer Playground",
+  "description": "Explore, test, and learn every built-in feature, component, utility, and documentation capability powering Developer Toolkit through interactive examples.",
+  "href": "/code_demo",
+  "icon": "flask-conical",
+  "active": true
+}
+]
