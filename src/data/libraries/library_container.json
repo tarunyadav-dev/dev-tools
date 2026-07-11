@@ -152,5 +152,43 @@
     "officialWebsite": "https://matplotlib.org",
     "githubRepo": "https://github.com/matplotlib/matplotlib",
     "contentUrl": "src/data/libraries/markdown/python/data-science/matplotlib.md"
-  }
+  },
+  {
+  "id": "6870c3d5a91b4f7d8e120005",
+  "name": "Git",
+  "icon": "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
+  "description": "A free and open-source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.",
+  "coreLanguage": "Workflow",
+  "coreFramework": null,
+  "slug": "git",
+  "keywordForUse": [
+    "version control",
+    "vcs",
+    "source code management",
+    "collaboration",
+    "tracking"
+  ],
+  "seoTags": [
+    "git",
+    "version control system",
+    "distributed vcs",
+    "source code management",
+    "git scm"
+  ],
+  "useCaseLines": [
+    "Track changes in source code during development.",
+    "Collaborate seamlessly on distributed projects.",
+    "Manage non-linear workflows with branching and merging.",
+    "Maintain a complete, cryptographically secure history of project versions."
+  ],
+  "dateOfCreation": "2026-07-12T00:00:00.000Z",
+  "dateOfUpdate": "2026-07-12T00:00:00.000Z",
+  "percentageOfCompleteness": 80,
+  "isActive": true,
+  "category": "Version Control",
+  "documentationUrl": "https://git-scm.com/doc",
+  "officialWebsite": "https://git-scm.com",
+  "githubRepo": "https://github.com/git/git",
+  "contentUrl": "src/data/libraries/markdown/workflow/git.md"
+}
 ]
