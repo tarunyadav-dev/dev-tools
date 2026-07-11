@@ -1,9 +1,7 @@
-// This page is going to be complete change it's just a demo for checking purpose
+import fs from "node:fs";
+import path from "node:path";
 
-import fs from "fs";
-import path from "path";
-
-import library from "@/src/data/libraries/library_container.json";
+import libraryInformation from "@/src/data/libraries/library_container.json";
 
 import {
   parseMarkdown,
@@ -11,116 +9,356 @@ import {
   generateToc,
   buildSearchIndex,
 } from "@/src/lib/markdown-reader";
+import  DocumentationClient  from './DocumentationClient'
 
-// Demo Components
-// import BasicExample from "@/src/components/demo/BasicExample";
+import { demoRegistry } from "@/src/demo/demoRegistry";
+import { Divide } from "lucide-react";
 
-// Playground Components
-// import BasicPlayground from "@/src/lib/markdown-reader/directives/"
-
-// Custom Components
-// import FlowExample from "@/src/components/docs/FlowExample";
-
-export default async function LibraryPage({
+export default async function DocumentationDemoPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  /* =======================================================
+     Load Library
+  ======================================================= */
+
   const { slug } = await params;
 
-  // Find current library
-  const currentLibrary = library.find((lib) => lib.slug === slug);
+  const library = libraryInformation.find(
+    (item) => item.slug === slug,
+  )!;
 
-  // Markdown fallback
-  let markdown = "# Markdown Not Found";
+  /* =======================================================
+     Read Markdown
+  ======================================================= */
 
-  if (currentLibrary?.contentUrl) {
-    const filePath = path.join(process.cwd(), currentLibrary.contentUrl);
+  const markdownPath = path.join(
+    process.cwd(),
+    library.contentUrl,
+  );
 
-    if (fs.existsSync(filePath)) {
-      markdown = fs.readFileSync(filePath, "utf8");
-    }
-  }
+  const source = fs.readFileSync(markdownPath, "utf8");
 
-  // Parse markdown
-  const { ast, errors } = parseMarkdown(markdown);
+  /* =======================================================
+     Parse
+  ======================================================= */
+
+  const { ast, errors } = parseMarkdown(source);
 
   if (errors.length > 0) {
-    console.warn(errors);
+    console.table(errors);
   }
 
-  // Generate TOC
+  /* =======================================================
+     Generate
+  ======================================================= */
+
   const toc = generateToc(ast);
 
-  // Build Search Index
-  const searchIndex = buildSearchIndex(
-    ast,
-    currentLibrary?.name ?? slug
-  );
+  const searchIndex = buildSearchIndex(ast, library.name);
 
-  /*
-   * Demo Registry
-   */
-  const demoRegistry = {
-    // "basic-example": BasicExample,
-    // "drag-connect-demo": DragConnectDemo,
-  };
 
-  /*
-   * Playground Registry
-   */
-  const playgroundRegistry = {
-    // "basic-flow": BasicPlayground,
-  };
+  /* =======================================================
+     Render
+  ======================================================= */
 
-  /*
-   * Component Registry
-   */
-  const componentRegistry = {
-    // "FlowExample": FlowExample,
-  };
+return(
 
-  return (
-    <div className="flex gap-10">
+<DocumentationClient
 
-      {/* Markdown */}
-      <main className="flex-1">
-        <DocsRenderer
-          ast={ast}
-        />
-      </main>
+    sidebar={
 
-      {/* Sidebar */}
-      <aside className="hidden w-64 shrink-0 xl:block">
+      <>
+              {/* =============================================== */}
+        {/* Search */}
+        {/* =============================================== */}
 
-        <div className="sticky top-24">
+        <div className="border-b border-white/10 p-5">
+          <input
+            type="text"
+            placeholder="Search this document..."
+            className="
+        w-full
 
-          <h3 className="mb-4 text-lg font-semibold">
-            On This Page
-          </h3>
+        rounded-xl
 
-          <nav className="space-y-2">
+        border
+        border-white/10
 
-            {toc.map((item) => (
-              <a
-                key={item.slug}
-                href={`#${item.slug}`}
-                className={`block text-sm transition hover:text-blue-400 ${
-                  item.depth === 3
-                    ? "pl-4 text-slate-400"
-                    : "font-medium"
-                }`}
-              >
-                {item.title}
-              </a>
-            ))}
+        bg-white/5
 
-          </nav>
+        px-4
+        py-3
 
+        text-sm
+        text-white
+
+        placeholder:text-slate-500
+
+        outline-none
+
+        transition
+
+        focus:border-blue-500
+        focus:bg-white/10
+      "
+          />
         </div>
 
-      </aside>
+        {/* =============================================== */}
+        {/* Scroll Area */}
+        {/* =============================================== */}
 
-    </div>
-  );
+        <div
+          className="
+      flex-1
+
+      overflow-y-auto
+
+      px-5
+      py-6
+
+      space-y-10
+
+      scrollbar-thin
+      scrollbar-thumb-white/10
+    "
+        >
+          {/* =============================================== */}
+          {/* Library */}
+          {/* =============================================== */}
+
+          <section>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
+              Library
+            </p>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="flex items-center gap-4">
+                <img
+                  src={library.icon.split("?")[0]}
+                  alt={library.name}
+                  className="h-12 w-12 rounded-xl bg-white p-2 object-contain"
+                />
+
+                <div>
+                  <h3 className="font-semibold">{library.name}</h3>
+
+                  <p className="mt-1 text-sm text-slate-500">
+                    {library.category}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* =============================================== */}
+          {/* Resources */}
+          {/* =============================================== */}
+
+          <section>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
+              Resources
+            </p>
+
+            <div className="space-y-2">
+              {library.documentationUrl && (
+                <a
+                  href={library.documentationUrl}
+                  target="_blank"
+                  className="
+              flex
+              items-center
+              justify-between
+
+              rounded-xl
+
+              border
+              border-white/10
+
+              bg-white/5
+
+              px-4
+              py-3
+
+              transition
+
+              hover:border-blue-500
+              hover:bg-blue-500/10
+            "
+                >
+                  Documentation ↗
+                </a>
+              )}
+
+              {library.officialWebsite && (
+                <a
+                  href={library.officialWebsite}
+                  target="_blank"
+                  className="
+              flex
+              items-center
+              justify-between
+
+              rounded-xl
+
+              border
+              border-white/10
+
+              bg-white/5
+
+              px-4
+              py-3
+
+              transition
+
+              hover:border-emerald-500
+              hover:bg-emerald-500/10
+            "
+                >
+                  Official Website ↗
+                </a>
+              )}
+
+              {library.githubRepo && (
+                <a
+                  href={library.githubRepo}
+                  target="_blank"
+                  className="
+              flex
+              items-center
+              justify-between
+
+              rounded-xl
+
+              border
+              border-white/10
+
+              bg-white/5
+
+              px-4
+              py-3
+
+              transition
+
+              hover:border-slate-400
+              hover:bg-white/10
+            "
+                >
+                  GitHub Repository ↗
+                </a>
+              )}
+            </div>
+          </section>
+
+          {/* =============================================== */}
+          {/* Table Of Contents */}
+          {/* =============================================== */}
+
+          <section>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
+              Contents
+            </p>
+
+            <nav className="space-y-1">
+              {toc.map((item) => (
+                <a
+                  key={item.slug}
+                  href={`#${item.slug}`}
+                  className={`
+              block
+
+              rounded-lg
+
+              px-3
+              py-2
+
+              text-sm
+
+              transition-all
+
+              hover:bg-white/5
+              hover:text-white
+
+              ${
+                item.depth === 3
+                  ? "ml-4 text-slate-500"
+                  : "font-medium text-slate-300"
+              }
+            `}
+                >
+                  {item.title}
+                </a>
+              ))}
+            </nav>
+          </section>
+
+          {/* =============================================== */}
+          {/* Metadata */}
+          {/* =============================================== */}
+
+          <section>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
+              Metadata
+            </p>
+
+            <div className="grid gap-3">
+              <div className="rounded-xl border border-sky-500/20 bg-sky-500/10 p-4">
+                <p className="text-xs text-sky-300">Language</p>
+
+                <p className="mt-1 font-semibold">{library.coreLanguage}</p>
+              </div>
+
+              <div className="rounded-xl border border-violet-500/20 bg-violet-500/10 p-4">
+                <p className="text-xs text-violet-300">Framework</p>
+
+                <p className="mt-1 font-semibold">
+                  {library.coreFramework ?? "None"}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4">
+                <p className="text-xs text-emerald-300">Completion</p>
+
+                <p className="mt-1 font-semibold">
+                  {library.percentageOfCompleteness}%
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </>
+
+    }
+
+>
+
+{/* ================================================= */}
+      {/* Markdown */}
+      {/* ================================================= */}
+
+      <main
+        className="
+        flex-1
+
+    "
+      >
+        <div
+          className="
+    mx-auto
+
+    max-w-5xl
+
+    px-8
+    py-10
+"
+        >
+          <DocsRenderer ast={ast} demoRegistry={demoRegistry} />
+        </div>
+      </main>
+
+</DocumentationClient>
+
+)
 }

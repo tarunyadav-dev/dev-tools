@@ -75,7 +75,7 @@
     "documentationUrl": "https://lucide.dev/guide/packages/lucide-react",
     "officialWebsite": "https://lucide.dev",
     "githubRepo": "https://github.com/lucide-icons/lucide",
-    "contentUrl": null
+    "contentUrl": "src/data/libraries/markdown/javascript/react/lucide-react.md"
   },
   {
     "id": "6870c3d5a91b4f7d8e120003",
@@ -113,7 +113,7 @@
     "documentationUrl": "https://docs.streamlit.io",
     "officialWebsite": "https://streamlit.io",
     "githubRepo": "https://github.com/streamlit/streamlit",
-    "contentUrl": null
+    "contentUrl": "src/data/libraries/markdown/python/streamlit.md"
   },
   {
     "id": "6870c3d5a91b4f7d8e120004",
@@ -151,6 +151,6 @@
     "documentationUrl": "https://matplotlib.org/stable/",
     "officialWebsite": "https://matplotlib.org",
     "githubRepo": "https://github.com/matplotlib/matplotlib",
-    "contentUrl": null
+    "contentUrl": "src/data/libraries/markdown/python/data-science/matplotlib.md"
   }
 ]

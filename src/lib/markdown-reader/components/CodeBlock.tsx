@@ -16,7 +16,7 @@ export function CodeBlock({ node }: { node: CodeNode }) {
       setTimeout(() => {
         setCopied(false);
       }, 1500);
-    } catch {}
+    } catch(err) {console.error(err)}
   };
 
   return (
